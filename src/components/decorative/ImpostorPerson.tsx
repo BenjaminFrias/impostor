@@ -31,7 +31,6 @@ export default function ImpostorPerson(props: SVGProps<SVGSVGElement>) {
 					height="949.781"
 					filterUnits="userSpaceOnUse"
 				>
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
 					<feMorphology
 						radius="4"
 						operator="dilate"
