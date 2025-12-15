@@ -23,36 +23,40 @@ export default function ImpostorPerson(props: SVGProps<SVGSVGElement>) {
 				/>
 			</g>
 			<defs>
-				<filter
-					id={filterId}
-					x="73.6455"
-					y="28.9994"
-					width="853.709"
-					height="949.781"
-					filterUnits="userSpaceOnUse"
-				>
-					<feMorphology
-						radius="4"
-						operator="dilate"
-						in="SourceAlpha"
-						result="effect1_dropShadow_56_879"
-					/>
-					<feOffset dy="4" />
-					<feGaussianBlur stdDeviation="30" />
-					<feComposite in2="hardAlpha" operator="out" />
-					<feColorMatrix type="matrix" values={shadowColorValues} />
-					<feBlend
-						mode="normal"
-						in2="BackgroundImageFix"
-						result="effect1_dropShadow_56_879"
-					/>
-					<feBlend
-						mode="normal"
-						in="SourceGraphic"
-						in2="effect1_dropShadow_56_879"
-						result="shape"
-					/>
-				</filter>
+				{props.values ? (
+					<filter
+						id={filterId}
+						x="73.6455"
+						y="28.9994"
+						width="853.709"
+						height="949.781"
+						filterUnits="userSpaceOnUse"
+					>
+						<feMorphology
+							radius="4"
+							operator="dilate"
+							in="SourceAlpha"
+							result="effect1_dropShadow_56_879"
+						/>
+						<feOffset dy="4" />
+						<feGaussianBlur stdDeviation="25" />
+						<feComposite in2="hardAlpha" operator="out" />
+						<feColorMatrix type="matrix" values={shadowColorValues} />
+						<feBlend
+							mode="normal"
+							in2="BackgroundImageFix"
+							result="effect1_dropShadow_56_879"
+						/>
+						<feBlend
+							mode="normal"
+							in="SourceGraphic"
+							in2="effect1_dropShadow_56_879"
+							result="shape"
+						/>
+					</filter>
+				) : (
+					''
+				)}
 			</defs>
 		</svg>
 	);
