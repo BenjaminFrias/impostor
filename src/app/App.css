@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@import 'tailwindcss/preflight.css' layer(base);
+
+@theme {
+	--color-dark-gray: #121212;
+	--color-light-gray: #202020;
+	--color-primary-red: #d21313;
+	--font-impostor: 'New Rocker', 'serif';
+	--font-primary: 'Platypi', 'serif';
+	--font-secondary: 'Inter', 'Helvetica', 'sans-serif';
+}
+
+.impostor-title {
+	font-family: var(--font-impostor);
+	font-size: 3.5rem;
+	color: var(--color-light-gray);
+	opacity: 90%;
+	text-transform: uppercase;
+	line-height: 1.2;
+	z-index: -2;
+}

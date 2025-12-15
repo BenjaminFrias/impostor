@@ -31,6 +31,7 @@ export default function ImpostorPerson(props: SVGProps<SVGSVGElement>) {
 					height="949.781"
 					filterUnits="userSpaceOnUse"
 				>
+					<feFlood flood-opacity="0" result="BackgroundImageFix" />
 					<feMorphology
 						radius="4"
 						operator="dilate"
@@ -38,7 +39,7 @@ export default function ImpostorPerson(props: SVGProps<SVGSVGElement>) {
 						result="effect1_dropShadow_56_879"
 					/>
 					<feOffset dy="4" />
-					<feGaussianBlur stdDeviation="25" />
+					<feGaussianBlur stdDeviation="30" />
 					<feComposite in2="hardAlpha" operator="out" />
 					<feColorMatrix type="matrix" values={shadowColorValues} />
 					<feBlend
