@@ -61,6 +61,9 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 			return cat;
 		});
 
+		const isValid = newCategories.filter((cat) => cat.isActive);
+		if (isValid.length === 0) return;
+
 		setLocalSettings({
 			...localSettings,
 			categories: newCategories,
