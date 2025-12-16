@@ -5,10 +5,12 @@
 	--color-dark-gray: #121212;
 	--color-gray: #202020;
 	--color-light-gray: #686868;
+	--color-custom-white: #ffffff;
 	--color-primary-red: #d21313;
 	--font-impostor: 'New Rocker', 'serif';
 	--font-primary: 'Platypi', 'serif';
 	--font-secondary: 'Inter', 'Helvetica', 'sans-serif';
+	--button-radius: 12px;
 }
 
 .impostor-title {
@@ -26,4 +28,16 @@
 	font-weight: 500;
 	color: var(--color-light-gray);
 	font-size: 1.5rem;
+}
+
+/* CATEGORY BUTTON */
+.category-selected {
+	background-color: var(--color-custom-white);
+	color: var(--color-gray);
+}
+
+.category-unselected {
+	background-color: var(--color-gray);
+	border: 2px solid var(--color-custom-white);
+	color: var(--color-custom-white);
 }
