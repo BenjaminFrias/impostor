@@ -3,7 +3,8 @@
 
 @theme {
 	--color-dark-gray: #121212;
-	--color-light-gray: #202020;
+	--color-gray: #202020;
+	--color-light-gray: #686868;
 	--color-primary-red: #d21313;
 	--font-impostor: 'New Rocker', 'serif';
 	--font-primary: 'Platypi', 'serif';
@@ -14,8 +15,15 @@
 	user-select: none;
 	font-family: var(--font-impostor);
 	font-size: 3.5rem;
-	color: var(--color-light-gray);
+	color: var(--color-gray);
 	opacity: 90%;
 	text-transform: uppercase;
 	line-height: 1.2;
+}
+
+.settings-subtitle {
+	font-family: var(--font-secondary);
+	font-weight: 500;
+	color: var(--color-light-gray);
+	font-size: 1.5rem;
 }
