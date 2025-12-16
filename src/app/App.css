@@ -38,6 +38,5 @@
 
 .category-unselected {
 	background-color: var(--color-gray);
-	border: 2px solid var(--color-custom-white);
 	color: var(--color-custom-white);
 }

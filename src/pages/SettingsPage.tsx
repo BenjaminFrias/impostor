@@ -105,7 +105,7 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 
 						return (
 							<button
-								className={`flex flex-col min-w-25 h-25 rounded-(--button-radius) gap-1 px-2 py-1.5 ${buttonClass}`}
+								className={`flex flex-col min-w-25 h-25 rounded-(--button-radius) gap-1 px-2 py-1.5 border-2 border-(--custom-white) outline-0 ${buttonClass}`}
 								key={cat.name}
 								onClick={() => toggleCategory(cat)}
 							>
