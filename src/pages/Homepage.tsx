@@ -1,11 +1,11 @@
 import ImpostorPerson from '../components/decorative/ImpostorPerson';
 import type { pageValue } from '../types';
 
-type HomepageType = {
+type HomeProps = {
 	onNavigate: (page: pageValue) => void;
 };
 
-export default function Homepage({ onNavigate }: HomepageType) {
+export default function Homepage({ onNavigate }: HomeProps) {
 	return (
 		<div className="relative flex flex-col w-screen h-screen bg-black items-center text-white justify-center overflow-hidden">
 			<div className="absolute top-0 translate-y-[-60%] w-screen h-80 bg-primary-red/50 z-10  rounded-b-full blur-[80px] "></div>
