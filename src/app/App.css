@@ -13,6 +13,31 @@
 	--button-radius: 12px;
 }
 
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 8px;
+		height: 6px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: var(--color-gray);
+		border-radius: 100vh;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+}
+
 .impostor-title {
 	user-select: none;
 	font-family: var(--font-impostor);

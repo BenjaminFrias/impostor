@@ -73,9 +73,9 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 				</div>
 			</div>
 
-			<div className="flex flex-col gap-3 w-full">
+			<div className="relative flex flex-col gap-3 w-full">
 				<h3 className="settings-subtitle">Categories</h3>
-				<div className="flex gap-3">
+				<div className="custom-scrollbar pb-3 flex overflow-x-auto gap-3">
 					{localSettings.categories.map((cat) => (
 						<CategoryButton
 							cat={cat}
