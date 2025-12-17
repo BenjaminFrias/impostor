@@ -1,39 +1,16 @@
 import { useState } from 'react';
 import type { pageValue, GameSettings, Category } from '../types';
 import PlayerIconButton from '../components/PlayerIconButton';
+import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
 
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
 };
 
-const defaultGameSettings: GameSettings = {
-	players: 3,
-	impostors: 1,
-	categories: [
-		{
-			name: 'objects',
-			isActive: true,
-		},
-		{
-			name: 'football',
-			isActive: false,
-		},
-		{
-			name: 'animals',
-			isActive: false,
-		},
-		{
-			name: 'movies',
-			isActive: false,
-		},
-	],
-	impostorIndex: 3,
-	hints: false,
-	time: false,
-};
-
 export default function SettingsPage({ onNavigate }: SettingsProps) {
-	const [localSettings, setLocalSettings] = useState(defaultGameSettings);
+	const [localSettings, setLocalSettings] = useState<GameSettings>(
+		DEFAULT_GAME_SETTINGS
+	);
 
 	const removePlayer = () => {
 		if (localSettings.players > 3) {
@@ -103,14 +80,18 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 							? 'category-selected'
 							: 'category-unselected';
 
+						const Icon = cat.icon;
+
 						return (
 							<button
-								className={`flex flex-col min-w-25 h-25 rounded-(--button-radius) gap-1 px-2 py-1.5 border-2 border-(--custom-white) outline-0 ${buttonClass}`}
+								className={`flex flex-col justify-around min-w-25 h-25 rounded-(--button-radius) p-2 border-2 border-(--custom-white) outline-0 ${buttonClass}`}
 								key={cat.name}
 								onClick={() => toggleCategory(cat)}
 							>
-								<div className="w-full h-full bg-amber-500"></div>
-								<p className="font-primary font-bold">
+								<div className="w-full h-[55%]">
+									<Icon selected={cat.isActive} />
+								</div>
+								<p className="font-primary font-medium">
 									{cat.name[0].toUpperCase() + cat.name.slice(1)}
 								</p>
 							</button>
