@@ -12,7 +12,7 @@ export type pageValue = (typeof PAGES)[pageKey];
 export type Category = {
 	name: string;
 	isActive: boolean;
-	icon: React.ComponentType<{ selected: boolean }>;
+	icon: React.ComponentType<IconProps>;
 	words: string[];
 };
 
@@ -23,4 +23,8 @@ export type GameSettings = {
 	hints: boolean;
 	time: number | boolean;
 	categories: Category[];
+};
+
+export type IconProps = {
+	borderColor: '#171717' | '#ffffff';
 };

@@ -1,10 +1,6 @@
-type StarProps = {
-	selected: boolean;
-};
+import type { IconProps } from '../../types';
 
-export default function StarIcon({ selected }: StarProps) {
-	const borderColor = selected ? '#171717' : '#ffffff';
-
+export default function StarIcon({ borderColor }: IconProps) {
 	return (
 		<svg
 			width="100%"

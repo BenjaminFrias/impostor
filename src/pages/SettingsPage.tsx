@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { pageValue, GameSettings, Category } from '../types';
 import PlayerIconButton from '../components/PlayerIconButton';
 import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
+import CategoryButton from '../components/CategoryButton';
 
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
@@ -75,28 +76,13 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 			<div className="flex flex-col gap-3 w-full">
 				<h3 className="settings-subtitle">Categories</h3>
 				<div className="flex gap-3">
-					{localSettings.categories.map((cat) => {
-						const buttonClass = cat.isActive
-							? 'category-selected'
-							: 'category-unselected';
-
-						const Icon = cat.icon;
-
-						return (
-							<button
-								className={`flex flex-col justify-around min-w-25 h-25 rounded-(--button-radius) p-2 border-2 border-(--custom-white) outline-0 ${buttonClass}`}
-								key={cat.name}
-								onClick={() => toggleCategory(cat)}
-							>
-								<div className="w-full h-[55%]">
-									<Icon selected={cat.isActive} />
-								</div>
-								<p className="font-primary font-medium">
-									{cat.name[0].toUpperCase() + cat.name.slice(1)}
-								</p>
-							</button>
-						);
-					})}
+					{localSettings.categories.map((cat) => (
+						<CategoryButton
+							cat={cat}
+							toggleCategory={toggleCategory}
+							key={cat.name}
+						/>
+					))}
 				</div>
 			</div>
 
