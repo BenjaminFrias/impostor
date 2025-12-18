@@ -5,6 +5,7 @@ import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
 import CategoryButton from '../components/CategoryButton';
 import AddNewCategoryBtn from '../components/AddNewCategoryBtn';
 import CreateCategoryModal from '../components/CreateCategoryModal';
+import StickyFooterBtn from '../components/StickyFooterBtn';
 
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
@@ -105,7 +106,11 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 				}}
 			/>
 
-			<button onClick={() => onNavigate('home')}>Play</button>
+			<StickyFooterBtn
+				label="Play"
+				color="red"
+				handleClick={() => onNavigate('home')}
+			/>
 		</div>
 	);
 }

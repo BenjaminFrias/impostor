@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Category } from '../types';
 import StarIcon from './decorative/StarIcon';
+import StickyFooterBtn from './StickyFooterBtn';
 
 type CreateCategoryModalProps = {
 	isOpen: boolean;
@@ -93,7 +94,7 @@ export default function CreateCategoryModal({
 
 	return (
 		<div
-			className={`create-cat-div fixed bottom-0 top-0 inset-0 w-full p-5 bg-gray z-50 transition-transform
+			className={`create-cat-div absolute bottom-0 top-0 inset-0 w-full p-5 bg-gray z-50 transition-transform
 					duration-300 ease-in-out transform flex flex-col gap-8 ${
 						isOpen ? 'translate-y-0' : 'translate-y-full'
 					}`}
@@ -176,12 +177,12 @@ export default function CreateCategoryModal({
 				</form>
 			</div>
 
-			<div className="flex gap-2 flex-wrap overflow-auto">
+			<div className="flex gap-2 flex-wrap mb-20 overflow-y-auto">
 				{customCategory.words.map((word) => {
 					return (
 						<button
 							key={word}
-							className="bg-custom-white font-secondary font-bold text-gray py-1.5 px-3 rounded-sm"
+							className="flex-[100%] bg-custom-white font-secondary font-bold text-gray py-1.5 px-3 rounded-sm"
 							onClick={() => removeWord(word)}
 						>
 							{word}
@@ -190,12 +191,11 @@ export default function CreateCategoryModal({
 				})}
 			</div>
 
-			<button
-				onClick={() => handleSaveCategory()}
-				className="fixed left-0 right-0 bottom-10 text-gray-500 text-2xl"
-			>
-				Save
-			</button>
+			<StickyFooterBtn
+				label="Save"
+				color="red"
+				handleClick={handleSaveCategory}
+			/>
 		</div>
 	);
 }
