@@ -3,6 +3,8 @@ import type { pageValue, GameSettings, Category } from '../types';
 import PlayerIconButton from '../components/PlayerIconButton';
 import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
 import CategoryButton from '../components/CategoryButton';
+import AddNewCategoryBtn from '../components/AddNewCategoryBtn';
+import CreateCategoryModal from '../components/CreateCategoryModal';
 
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
@@ -12,6 +14,7 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 	const [localSettings, setLocalSettings] = useState<GameSettings>(
 		DEFAULT_GAME_SETTINGS
 	);
+	const [isCreateCatOpen, setIsCreateCatOpen] = useState(false);
 
 	const removePlayer = () => {
 		if (localSettings.players > 3) {
@@ -73,18 +76,34 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 				</div>
 			</div>
 
-			<div className="relative flex flex-col gap-3 w-full">
+			<div className="flex flex-col gap-3 w-full">
 				<h3 className="settings-subtitle">Categories</h3>
 				<div className="custom-scrollbar pb-3 flex overflow-x-auto gap-3">
+					{/* Add custom categorie button */}
+					<AddNewCategoryBtn onClick={() => setIsCreateCatOpen(true)} />
 					{localSettings.categories.map((cat) => (
 						<CategoryButton
 							cat={cat}
-							toggleCategory={toggleCategory}
+							onToggle={toggleCategory}
 							key={cat.name}
 						/>
 					))}
 				</div>
 			</div>
+
+			{/* show create category modal */}
+
+			<CreateCategoryModal
+				isOpen={isCreateCatOpen}
+				onClose={() => setIsCreateCatOpen(false)}
+				categories={localSettings.categories.map((cat) => cat.name)}
+				onSavingCategory={(newCat) => {
+					setLocalSettings({
+						...localSettings,
+						categories: [...localSettings.categories, newCat],
+					});
+				}}
+			/>
 
 			<button onClick={() => onNavigate('home')}>Play</button>
 		</div>

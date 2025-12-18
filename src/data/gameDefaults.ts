@@ -1,5 +1,6 @@
 import StarIcon from '../components/decorative/StarIcon';
 import type { GameSettings } from '../types';
+import { wordBanks } from './wordBanks';
 
 export const DEFAULT_GAME_SETTINGS: GameSettings = {
 	players: 3,
@@ -9,27 +10,45 @@ export const DEFAULT_GAME_SETTINGS: GameSettings = {
 	time: false,
 	categories: [
 		{
-			name: 'objects',
-			words: ['car', 'pen', 'cup', 'table', 'phone', 'watch', 'book', 'lamp'],
+			name: 'Objects',
+			words: wordBanks.objects,
 			isActive: true,
 			icon: StarIcon,
 		},
 		{
-			name: 'football',
-			isActive: false,
+			name: 'Football',
+			isActive: true,
 			icon: StarIcon,
-			words: ['messi', 'stadium', 'referee', 'goal', 'offside', 'cleats'],
+			words: wordBanks.football,
 		},
 		{
-			name: 'animals',
-			isActive: false,
+			name: 'Animals',
+			isActive: true,
 			icon: StarIcon,
-			words: ['lion', 'tiger', 'elephant', 'zebra', 'penguin', 'shark'],
+			words: wordBanks.animals,
 		},
 		{
-			name: 'movies',
-			isActive: false,
-			words: ['director', 'script', 'popcorn', 'camera', 'oscar', 'sequel'],
+			name: 'Movies and TV',
+			isActive: true,
+			words: wordBanks.moviesAndTV,
+			icon: StarIcon,
+		},
+		{
+			name: 'Places',
+			isActive: true,
+			words: wordBanks.places,
+			icon: StarIcon,
+		},
+		{
+			name: 'Jobs',
+			isActive: true,
+			words: wordBanks.jobs,
+			icon: StarIcon,
+		},
+		{
+			name: 'Food',
+			isActive: true,
+			words: wordBanks.food,
 			icon: StarIcon,
 		},
 	],
