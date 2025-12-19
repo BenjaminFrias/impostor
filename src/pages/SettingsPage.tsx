@@ -164,6 +164,29 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 				color="red"
 				handleClick={() => onNavigate('home')}
 			/>
+
+			<div className="flex gap-3 w-full mb-20">
+				<button
+					className={`flex-1 rounded-(--button-radius) p-3 font-primary font-bold border-2 ${
+						localSettings.hints
+							? 'bg-custom-white text-gray border-custom-white'
+							: 'bg-transparent text-custom-white border-light-gray'
+					} `}
+					onClick={toggleHints}
+				>
+					Hints
+				</button>
+				<button
+					className={`flex-1 rounded-(--button-radius) p-3 font-primary font-bold border-2 ${
+						localSettings.time
+							? 'bg-custom-white text-gray border-custom-white'
+							: 'bg-transparent text-custom-white border-light-gray'
+					} `}
+					onClick={toggleTime}
+				>
+					{localSettings.time ? `${localSettings.time}min` : 'No time'}
+				</button>
+			</div>
 		</div>
 	);
 }
