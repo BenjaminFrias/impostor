@@ -1,3 +1,10 @@
+import AnimalsIcon from '../components/decorative/AnimalsIcon';
+import FoodIcon from '../components/decorative/FoodIcon';
+import FootballIcon from '../components/decorative/FootballIcon';
+import JobsIcon from '../components/decorative/JobsIcon';
+import MoviesAndTvIcon from '../components/decorative/MoviesAndTvIcon';
+import ObjectsIcon from '../components/decorative/ObjectsIcon';
+import PlacesIcon from '../components/decorative/PlacesIcon';
 import StarIcon from '../components/decorative/StarIcon';
 import type { GameSettings } from '../types';
 import { wordBanks } from './wordBanks';
@@ -13,43 +20,43 @@ export const DEFAULT_GAME_SETTINGS: GameSettings = {
 			name: 'Objects',
 			words: wordBanks.objects,
 			isActive: true,
-			icon: StarIcon,
+			icon: ObjectsIcon,
 		},
 		{
 			name: 'Football',
 			isActive: true,
-			icon: StarIcon,
+			icon: FootballIcon,
 			words: wordBanks.football,
 		},
 		{
 			name: 'Animals',
 			isActive: true,
-			icon: StarIcon,
+			icon: AnimalsIcon,
 			words: wordBanks.animals,
 		},
 		{
 			name: 'Movies and TV',
 			isActive: true,
 			words: wordBanks.moviesAndTV,
-			icon: StarIcon,
+			icon: MoviesAndTvIcon,
 		},
 		{
 			name: 'Places',
 			isActive: true,
 			words: wordBanks.places,
-			icon: StarIcon,
+			icon: PlacesIcon,
 		},
 		{
 			name: 'Jobs',
 			isActive: true,
 			words: wordBanks.jobs,
-			icon: StarIcon,
+			icon: JobsIcon,
 		},
 		{
 			name: 'Food',
 			isActive: true,
 			words: wordBanks.food,
-			icon: StarIcon,
+			icon: FoodIcon,
 		},
 	],
 };

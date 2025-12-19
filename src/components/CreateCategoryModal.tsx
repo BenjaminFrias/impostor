@@ -100,7 +100,7 @@ export default function CreateCategoryModal({
 					}`}
 		>
 			<div className="flex justify-between items-center pr-5">
-				<h2 className="font-secondary text-4xl font-medium">
+				<h2 className="font-secondary text-3xl font-medium">
 					Create your own category
 				</h2>
 				<button
@@ -121,14 +121,17 @@ export default function CreateCategoryModal({
 			</div>
 
 			{error ? (
-				<div className="bg-primary-red/10 font-medium text-custom-white text-center font-secondary p-3 border rounded-sm border-primary-red/50">
+				<div
+					className="bg-primary-red/10 font-medium text-custom-white
+                    text-center font-secondary p-3 border rounded-sm border-primary-red/50"
+				>
 					{error}
 				</div>
 			) : null}
 
-			<div className="flex flex-col gap-3 w-full mb-5">
+			<div className="flex flex-col gap-3 w-full">
 				<label
-					className="text-light-gray font-secondary font-medium text-2xl"
+					className="text-light-gray font-secondary font-medium text-xl"
 					htmlFor="cat-name"
 				>
 					Name
@@ -146,7 +149,7 @@ export default function CreateCategoryModal({
 
 			<div className="flex flex-col gap-3 w-full">
 				<label
-					className="text-light-gray font-secondary font-medium text-2xl"
+					className="text-light-gray font-secondary font-medium text-xl"
 					htmlFor="cat-name"
 				>
 					Add your words
