@@ -56,8 +56,32 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 		setLocalSettings({ ...localSettings, impostors: impostorAmount });
 	};
 
+	const toggleHints = () => {
+		setLocalSettings({ ...localSettings, hints: !localSettings.hints });
+	};
+
+	const toggleTime = () => {
+		switch (localSettings.time) {
+			case false:
+				setLocalSettings({ ...localSettings, time: 3 });
+				break;
+			case 3:
+				setLocalSettings({ ...localSettings, time: 5 });
+				break;
+			case 5:
+				setLocalSettings({ ...localSettings, time: 10 });
+				break;
+			case 10:
+				setLocalSettings({ ...localSettings, time: false });
+				break;
+		}
+	};
+
 	return (
-		<div className="relative flex flex-col gap-5 w-screen h-screen bg-black items-start p-5 text-white  overflow-hidden">
+		<div
+			className="relative flex flex-col gap-5 w-screen h-screen
+			bg-black items-start p-5 text-white  overflow-x-hidden custom-scrollbar"
+		>
 			<h2 className="font-secondary text-4xl font-medium mt-5">
 				Game settings
 			</h2>
@@ -106,7 +130,7 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 				onSavingCategory={(newCat) => {
 					setLocalSettings({
 						...localSettings,
-						categories: [...localSettings.categories, newCat],
+						categories: [newCat, ...localSettings.categories],
 					});
 				}}
 			/>

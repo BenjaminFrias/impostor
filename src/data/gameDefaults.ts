@@ -5,7 +5,6 @@ import JobsIcon from '../components/decorative/JobsIcon';
 import MoviesAndTvIcon from '../components/decorative/MoviesAndTvIcon';
 import ObjectsIcon from '../components/decorative/ObjectsIcon';
 import PlacesIcon from '../components/decorative/PlacesIcon';
-import StarIcon from '../components/decorative/StarIcon';
 import type { GameSettings } from '../types';
 import { wordBanks } from './wordBanks';
 

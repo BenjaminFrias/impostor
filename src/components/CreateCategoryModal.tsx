@@ -92,9 +92,11 @@ export default function CreateCategoryModal({
 
 	return (
 		<div
-			className={`create-cat-div absolute bottom-0 top-0 inset-0 w-full p-5 bg-gray z-50 transition-transform
+			className={`create-cat-div fixed bottom-0 top-0 inset-0 w-full p-5 bg-gray z-50 transition-transform
 					duration-300 ease-in-out transform flex flex-col gap-8 ${
-						isOpen ? 'translate-y-0' : 'translate-y-full'
+						isOpen
+							? 'translate-y-0 opacity-100'
+							: 'translate-y-full opacity-0 invisible'
 					}`}
 		>
 			<div className="flex justify-between items-center pr-5">

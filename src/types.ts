@@ -21,7 +21,7 @@ export type GameSettings = {
 	impostors: number;
 	impostorIndex: number | undefined;
 	hints: boolean;
-	time: number | boolean;
+	time: number | false;
 	categories: Category[];
 };
 
