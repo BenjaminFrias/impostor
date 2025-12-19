@@ -19,7 +19,7 @@ export default function JobsIcon({ borderColor }: IconProps) {
 				height="73"
 				rx="18"
 				stroke={borderColor}
-				stroke-width="40"
+				strokeWidth="40"
 				mask="url(#path-1-inside-1_139_78)"
 			/>
 			<rect
@@ -29,7 +29,7 @@ export default function JobsIcon({ borderColor }: IconProps) {
 				height="174"
 				rx="10"
 				stroke={borderColor}
-				stroke-width="20"
+				strokeWidth="20"
 			/>
 			<path
 				d="M365.329 99.75H30.8122L27 190.75L198.07 233.75L372 190.75L365.329 99.75Z"
@@ -38,7 +38,7 @@ export default function JobsIcon({ borderColor }: IconProps) {
 			<path
 				d="M194.409 233.534L42.1399 195.389C33.2411 193.159 27 185.162 27 175.988V114.75C27 103.704 35.9543 94.75 47 94.75H352C363.046 94.75 372 103.704 372 114.75V175.978C372 185.156 365.752 193.157 356.848 195.381L204.116 233.537C200.929 234.334 197.595 234.332 194.409 233.534Z"
 				stroke={borderColor}
-				stroke-width="20"
+				strokeWidth="20"
 			/>
 			<rect
 				x="113.25"

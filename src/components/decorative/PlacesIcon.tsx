@@ -9,7 +9,7 @@ export default function PlacesIcon({ borderColor }: IconProps) {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g clip-path="url(#clip0_139_30)">
+			<g clipPath="url(#clip0_139_30)">
 				<path
 					d="M176.611 112.331L104.686 64.3803L179.608 37.4082L176.611 112.331Z"
 					fill="#D21313"

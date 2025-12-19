@@ -9,7 +9,7 @@ export default function FootballIcon({ borderColor }: IconProps) {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g clip-path="url(#clip0_133_64)">
+			<g clipPath="url(#clip0_133_64)">
 				<path d="M108.5 360.5L61 306H128L142 372L108.5 360.5Z" fill="#D21313" />
 				<path
 					d="M204.539 71.055L141.564 24.6787L189.446 6.96191L258.146 24.6787L204.539 71.055Z"
