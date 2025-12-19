@@ -10,7 +10,7 @@
 	--font-impostor: 'New Rocker', 'serif';
 	--font-primary: 'Platypi', 'serif';
 	--font-secondary: 'Inter', 'Helvetica', 'sans-serif';
-	--button-radius: 12px;
+	--button-radius: 8px;
 }
 
 @layer utilities {

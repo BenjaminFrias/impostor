@@ -112,8 +112,8 @@ export default function CreateCategoryModal({
 					}}
 				>
 					<div className="absolute flex justify-center items-center w-full h-full rotate-45 z-10">
-						<div className="absolute w-1 h-6 bg-light-gray rounded-sm"></div>
-						<div className="absolute w-6 h-1 bg-light-gray rounded-sm"></div>
+						<div className="absolute w-1 h-6 bg-light-gray rounded-(--button-radius)"></div>
+						<div className="absolute w-6 h-1 bg-light-gray rounded-(--button-radius)"></div>
 					</div>
 				</button>
 			</div>
@@ -121,7 +121,7 @@ export default function CreateCategoryModal({
 			{error ? (
 				<div
 					className="bg-primary-red/10 font-medium text-custom-white
-                    text-center font-secondary p-3 border rounded-sm border-primary-red/50"
+                    text-center font-secondary p-3 border rounded-(--button-radius) border-primary-red/50"
 				>
 					{error}
 				</div>
@@ -140,7 +140,7 @@ export default function CreateCategoryModal({
 					id="cat-name"
 					value={categoryName}
 					onChange={(e) => setCategoryName(e.target.value)}
-					className="h-8 font-medium font-primary bg-light-gray/50 rounded-sm outline-0 pl-3 py-5"
+					className="h-8 font-medium font-primary bg-light-gray/50 rounded-(--button-radius) outline-0 pl-3 py-5"
 					placeholder="Enter category name"
 				/>
 			</div>
@@ -165,12 +165,12 @@ export default function CreateCategoryModal({
 						id="cat-name"
 						value={word}
 						onChange={(e) => setWord(e.target.value)}
-						className="h-8 w-full font-medium font-primary bg-light-gray/50 rounded-sm outline-0 pl-3 py-5"
+						className="h-8 w-full font-medium font-primary bg-light-gray/50 rounded-(--button-radius) outline-0 pl-3 py-5"
 						placeholder="Enter word"
 					/>
 
 					<button
-						className="w-20 bg-primary-red rounded-sm text-2xl"
+						className="w-20 bg-primary-red rounded-(--button-radius) text-2xl"
 						type="submit"
 					>
 						+
@@ -183,7 +183,7 @@ export default function CreateCategoryModal({
 					return (
 						<button
 							key={word}
-							className="bg-custom-white font-secondary font-bold text-gray py-1.5 px-3 rounded-sm"
+							className="bg-custom-white font-secondary font-bold text-gray py-1.5 px-3 rounded-(--button-radius)"
 							onClick={() => removeWord(word)}
 						>
 							{word}

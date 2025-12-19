@@ -15,7 +15,7 @@ export default function StickyFooterBtn({
 	return (
 		<button
 			onClick={handleClick}
-			className={`fixed w-full text-${textColor} font-primary text-2xl font-bold right-0 bottom-0 h-20 rounded-t-2xl bg-${btnColor} `}
+			className={`fixed w-full text-${textColor} font-primary text-2xl font-bold right-0 bottom-0 h-20 rounded-(--button-radius) bg-${btnColor} `}
 		>
 			{label}
 		</button>

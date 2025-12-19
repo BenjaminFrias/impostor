@@ -52,11 +52,16 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 		});
 	};
 
+	const updateImpostorsAmount = (impostorAmount: number) => {
+		setLocalSettings({ ...localSettings, impostors: impostorAmount });
+	};
+
 	return (
 		<div className="relative flex flex-col gap-5 w-screen h-screen bg-black items-start p-5 text-white  overflow-hidden">
 			<h2 className="font-secondary text-4xl font-medium mt-5">
 				Game settings
 			</h2>
+
 			<div className="flex flex-col  gap-3 w-full">
 				<h3 className="settings-subtitle">{localSettings.players} players</h3>
 
@@ -105,6 +110,30 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 					});
 				}}
 			/>
+
+			<div className="flex flex-col gap-3 w-full">
+				<h3 className="settings-subtitle">Impostors</h3>
+				<div className="flex gap-3 flex-wrap">
+					{Array.from({ length: 4 }).map((_, i) => {
+						const isActiveClass =
+							localSettings.impostors === i + 1
+								? 'bg-custom-white text-gray border-custom-white'
+								: 'bg-transparent text-custom-white border-light-gray ';
+
+						return (
+							<button
+								key={i}
+								onClick={() => {
+									updateImpostorsAmount(i + 1);
+								}}
+								className={`flex-1 rounded-(--button-radius) p-3 font-primary font-bold border-2 ${isActiveClass} `}
+							>
+								{i + 1}
+							</button>
+						);
+					})}
+				</div>
+			</div>
 
 			<StickyFooterBtn
 				label="Play"
