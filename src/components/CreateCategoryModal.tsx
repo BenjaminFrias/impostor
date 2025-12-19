@@ -33,16 +33,14 @@ export default function CreateCategoryModal({
 
 	const handleSaveCategory = () => {
 		// Check for name and words
-		setCustomCategory({ ...customCategory, name: categoryName });
-
-		if (!customCategory.name || customCategory.name.trim() === '') {
+		if (!categoryName || categoryName.trim() === '') {
 			setError('Your category needs a name');
 			return;
 		}
 
 		for (const cat of categories) {
-			if (customCategory.name.toLowerCase() === cat.toLowerCase()) {
-				setError(`${customCategory.name} category already exist`);
+			if (categoryName.toLowerCase() === cat.toLowerCase()) {
+				setError(`${categoryName} category already exist`);
 				return;
 			}
 		}
@@ -52,11 +50,11 @@ export default function CreateCategoryModal({
 			return;
 		}
 
+		onSavingCategory({ ...customCategory, name: categoryName });
+		setCustomCategory({ ...DEFAULT_CATEGORY });
 		setWord('');
 		setCategoryName('');
-		setCustomCategory({ ...DEFAULT_CATEGORY });
 		setError('');
-		onSavingCategory(customCategory);
 		onClose();
 	};
 
@@ -185,7 +183,7 @@ export default function CreateCategoryModal({
 					return (
 						<button
 							key={word}
-							className="flex-[100%] bg-custom-white font-secondary font-bold text-gray py-1.5 px-3 rounded-sm"
+							className="bg-custom-white font-secondary font-bold text-gray py-1.5 px-3 rounded-sm"
 							onClick={() => removeWord(word)}
 						>
 							{word}
