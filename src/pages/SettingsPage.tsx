@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import type { pageValue, GameSettings, Category } from '../types';
+import {
+	type pageValue,
+	type GameSettings,
+	type Category,
+	PAGES,
+} from '../types';
 import PlayerIconButton from '../components/PlayerIconButton';
 import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
 import CategoryButton from '../components/CategoryButton';
@@ -9,9 +14,13 @@ import StickyFooterBtn from '../components/StickyFooterBtn';
 
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
+	onSettingsChange: (newSettings: GameSettings) => void;
 };
 
-export default function SettingsPage({ onNavigate }: SettingsProps) {
+export default function SettingsPage({
+	onNavigate,
+	onSettingsChange,
+}: SettingsProps) {
 	const [localSettings, setLocalSettings] = useState<GameSettings>(
 		DEFAULT_GAME_SETTINGS
 	);
@@ -159,12 +168,6 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 				</div>
 			</div>
 
-			<StickyFooterBtn
-				label="Play"
-				color="red"
-				handleClick={() => onNavigate('home')}
-			/>
-
 			<div className="flex gap-3 w-full mb-20">
 				<button
 					className={`flex-1 rounded-(--button-radius) p-3 font-primary font-bold border-2 ${
@@ -187,6 +190,15 @@ export default function SettingsPage({ onNavigate }: SettingsProps) {
 					{localSettings.time ? `${localSettings.time}min` : 'No time'}
 				</button>
 			</div>
+
+			<StickyFooterBtn
+				label="Play"
+				color="red"
+				handleClick={() => {
+					onSettingsChange({ ...localSettings });
+					onNavigate(PAGES.GAMEPLAY);
+				}}
+			/>
 		</div>
 	);
 }

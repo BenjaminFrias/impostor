@@ -3,6 +3,8 @@ import type React from 'react';
 export const PAGES = {
 	HOME: 'home',
 	SETTINGS: 'settings',
+	GAMEPLAY: 'gameplay',
+	DISCUSSION: 'discussion',
 } as const;
 
 type pageKey = keyof typeof PAGES;
