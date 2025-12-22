@@ -11,6 +11,7 @@ import CategoryButton from '../components/CategoryButton';
 import AddNewCategoryBtn from '../components/AddNewCategoryBtn';
 import CreateCategoryModal from '../components/CreateCategoryModal';
 import StickyFooterBtn from '../components/StickyFooterBtn';
+import ErrorMessage from '../components/ErrorMessage';
 
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
@@ -25,26 +26,34 @@ export default function SettingsPage({
 		DEFAULT_GAME_SETTINGS
 	);
 	const [isCreateCatOpen, setIsCreateCatOpen] = useState(false);
+	const [error, setError] = useState<string | null>('');
 
 	const removePlayer = () => {
+		setError(null);
 		if (localSettings.players > 3) {
 			setLocalSettings({
 				...localSettings,
 				players: localSettings.players - 1,
 			});
+		} else {
+			setError(`You need at least 3 players to play`);
 		}
 	};
 
 	const addPlayer = () => {
-		if (localSettings.players < 12) {
+		setError(null);
+		if (localSettings.players < 15) {
 			setLocalSettings({
 				...localSettings,
 				players: localSettings.players + 1,
 			});
+		} else {
+			setError('Max 15 players allowed');
 		}
 	};
 
 	const toggleCategory = (selectedCategory: Category) => {
+		setError(null);
 		const newCategories: Category[] = localSettings.categories.map((cat) => {
 			if (cat.name === selectedCategory.name) {
 				return { ...cat, isActive: !cat.isActive };
@@ -53,7 +62,10 @@ export default function SettingsPage({
 		});
 
 		const isValid = newCategories.filter((cat) => cat.isActive);
-		if (isValid.length === 0) return;
+		if (isValid.length === 0) {
+			setError('At least one category must be active');
+			return;
+		}
 
 		setLocalSettings({
 			...localSettings,
@@ -62,7 +74,15 @@ export default function SettingsPage({
 	};
 
 	const updateImpostorsAmount = (impostorAmount: number) => {
-		setLocalSettings({ ...localSettings, impostors: impostorAmount });
+		const validImpostorAmount = Math.trunc(localSettings.players / 3) + 1;
+
+		if (impostorAmount <= validImpostorAmount) {
+			setLocalSettings({ ...localSettings, impostors: impostorAmount });
+		} else {
+			setError(
+				`The minimal amount of impostors to play with ${localSettings.players} players is ${validImpostorAmount}`
+			);
+		}
 	};
 
 	const toggleHints = () => {
@@ -94,6 +114,8 @@ export default function SettingsPage({
 			<h2 className="font-secondary text-4xl font-medium mt-5">
 				Game settings
 			</h2>
+
+			{error ? <ErrorMessage msg={error} /> : null}
 
 			<div className="flex flex-col  gap-3 w-full">
 				<h3 className="settings-subtitle">{localSettings.players} players</h3>

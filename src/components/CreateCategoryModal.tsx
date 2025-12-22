@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Category } from '../types';
 import StarIcon from './decorative/StarIcon';
 import StickyFooterBtn from './StickyFooterBtn';
+import ErrorMessage from './ErrorMessage';
 
 type CreateCategoryModalProps = {
 	isOpen: boolean;
@@ -120,14 +121,7 @@ export default function CreateCategoryModal({
 				</button>
 			</div>
 
-			{error ? (
-				<div
-					className="bg-primary-red/10 font-medium text-custom-white
-                    text-center font-secondary p-3 border rounded-(--button-radius) border-primary-red/50"
-				>
-					{error}
-				</div>
-			) : null}
+			{error ? <ErrorMessage msg={error} /> : null}
 
 			<div className="flex flex-col gap-3 w-full">
 				<label
