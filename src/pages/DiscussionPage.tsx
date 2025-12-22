@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PAGES, type GameSettings, type pageValue } from '../types';
 import ImpostorPerson from '../components/decorative/ImpostorPerson';
+import StickyFooterBtn from '../components/StickyFooterBtn';
 
 type DiscussionProps = {
 	gameSettings: GameSettings;
@@ -17,6 +18,13 @@ export default function DiscussionPage({
 		sec: 0,
 	});
 	const [isTimeout, setIsTimeout] = useState(false);
+	const [hasRevealed, setHasRevealed] = useState(false);
+
+	const handleRevealing = () => {
+		setHasRevealed(true);
+	};
+
+	const impostorIndex = (gameSettings.impostorIndex ?? 0) + 1;
 
 	useEffect(() => {
 		const randomIndex = Math.floor(Math.random() * gameSettings.impostors);
@@ -84,9 +92,42 @@ export default function DiscussionPage({
 				className="absolute -bottom-12 z-10 w-screen h-[50%]"
 			/>
 
+			{
+				<div
+					className={`absolute flex flex-col justify-center items-center inset-0 p-7 pt-20 text-center
+                        bg-primary-red overflow-hidden transition-all duration-300 w-screen h-screen z-100 
+                        ${hasRevealed ? 'scale-100' : 'scale-0'}`}
+				>
+					<p className="font-primary text-3xl text-custom-white">
+						The Impostor was:
+					</p>
+
+					<p className="font-primary text-4xl font-bold text-custom-white mt-5">
+						Player {impostorIndex}
+					</p>
+
+					<div className="w-full h-full">
+						<ImpostorPerson
+							width="100%"
+							height="100%"
+							color="#171717"
+							className="absolute -bottom-30 z-10 w-screen left-0"
+						/>
+					</div>
+
+					<div className="z-10">
+						<StickyFooterBtn
+							label="Play again"
+							color="white"
+							handleClick={() => onNavigate(PAGES.SETTINGS)}
+						/>
+					</div>
+				</div>
+			}
+
 			<button
 				className="absolute bottom-10 left-0 right-0 text-white font-primary font-bold text-3xl z-50"
-				onClick={() => onNavigate(PAGES.SETTINGS)}
+				onClick={handleRevealing}
 			>
 				Reveal
 			</button>
