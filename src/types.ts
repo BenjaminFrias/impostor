@@ -23,7 +23,7 @@ export type GameSettings = {
 	impostors: number;
 	impostorIndex: number | undefined;
 	hints: boolean;
-	time: number | false;
+	time: number;
 	categories: Category[];
 };
 

@@ -1,5 +1,5 @@
 import ImpostorPerson from '../components/decorative/ImpostorPerson';
-import type { pageValue } from '../types';
+import { PAGES, type pageValue } from '../types';
 
 type HomeProps = {
 	onNavigate: (page: pageValue) => void;
@@ -37,7 +37,7 @@ export default function Homepage({ onNavigate }: HomeProps) {
 
 			<button
 				className="absolute bottom-10 left-0 right-0 text-white font-primary font-bold text-3xl z-50"
-				onClick={() => onNavigate('settings')}
+				onClick={() => onNavigate(PAGES.SETTINGS)}
 			>
 				Play
 			</button>

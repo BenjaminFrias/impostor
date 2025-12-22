@@ -71,7 +71,7 @@ export default function SettingsPage({
 
 	const toggleTime = () => {
 		switch (localSettings.time) {
-			case false:
+			case 0:
 				setLocalSettings({ ...localSettings, time: 3 });
 				break;
 			case 3:
@@ -81,7 +81,7 @@ export default function SettingsPage({
 				setLocalSettings({ ...localSettings, time: 10 });
 				break;
 			case 10:
-				setLocalSettings({ ...localSettings, time: false });
+				setLocalSettings({ ...localSettings, time: 0 });
 				break;
 		}
 	};
@@ -181,13 +181,13 @@ export default function SettingsPage({
 				</button>
 				<button
 					className={`flex-1 rounded-(--button-radius) p-3 font-primary font-bold border-2 ${
-						localSettings.time
+						localSettings.time > 0
 							? 'bg-custom-white text-gray border-custom-white'
 							: 'bg-transparent text-custom-white border-light-gray'
 					} `}
 					onClick={toggleTime}
 				>
-					{localSettings.time ? `${localSettings.time}min` : 'No time'}
+					{localSettings.time > 0 ? `${localSettings.time}min` : 'No time'}
 				</button>
 			</div>
 

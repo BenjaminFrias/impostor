@@ -5,6 +5,7 @@ import { PAGES, type GameSettings, type pageValue } from '../types';
 import SettingsPage from '../pages/SettingsPage';
 import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
 import GameplayPage from '../pages/GameplayPage';
+import DiscussionPage from '../pages/DiscussionPage';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState<pageValue>(PAGES.HOME);
@@ -34,7 +35,9 @@ function App() {
 		case PAGES.GAMEPLAY:
 			return <GameplayPage gameSettings={gameSettings} onNavigate={navigate} />;
 		case PAGES.DISCUSSION:
-			return <div>Discuss</div>;
+			return (
+				<DiscussionPage gameSettings={gameSettings} onNavigate={navigate} />
+			);
 		default:
 			return <Homepage onNavigate={navigate} />;
 	}

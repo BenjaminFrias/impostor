@@ -13,7 +13,7 @@ export const DEFAULT_GAME_SETTINGS: GameSettings = {
 	impostors: 1,
 	impostorIndex: 3,
 	hints: false,
-	time: false,
+	time: 0,
 	categories: [
 		{
 			name: 'Objects',

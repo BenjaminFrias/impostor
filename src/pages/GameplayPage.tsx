@@ -59,8 +59,8 @@ export default function GameplayPage({
 
 	return (
 		<div
-			className={`relative flex flex-col w-screen h-screen p-10
-            gap-10 items-center overflow-hidden            `}
+			className="relative flex flex-col w-screen h-screen p-10
+            gap-10 items-center overflow-hidden"
 		>
 			<h2 className="font-primary text-2xl font-light-gray">
 				Player {currentPlayer + 1}
