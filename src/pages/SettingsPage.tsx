@@ -6,7 +6,6 @@ import {
 	PAGES,
 } from '../types';
 import PlayerIconButton from '../components/PlayerIconButton';
-import { DEFAULT_GAME_SETTINGS } from '../data/gameDefaults';
 import CategoryButton from '../components/CategoryButton';
 import AddNewCategoryBtn from '../components/AddNewCategoryBtn';
 import CreateCategoryModal from '../components/CreateCategoryModal';
@@ -16,15 +15,16 @@ import ErrorMessage from '../components/ErrorMessage';
 type SettingsProps = {
 	onNavigate: (page: pageValue) => void;
 	onSettingsChange: (newSettings: GameSettings) => void;
+	defaultSettings: GameSettings;
 };
 
 export default function SettingsPage({
 	onNavigate,
 	onSettingsChange,
+	defaultSettings,
 }: SettingsProps) {
-	const [localSettings, setLocalSettings] = useState<GameSettings>(
-		DEFAULT_GAME_SETTINGS
-	);
+	const [localSettings, setLocalSettings] =
+		useState<GameSettings>(defaultSettings);
 	const [isCreateCatOpen, setIsCreateCatOpen] = useState(false);
 	const [error, setError] = useState<string | null>('');
 
@@ -106,6 +106,13 @@ export default function SettingsPage({
 		}
 	};
 
+	const handleAddCustomCategory = (newCat: Category) => {
+		setLocalSettings({
+			...localSettings,
+			categories: [newCat, ...localSettings.categories],
+		});
+	};
+
 	return (
 		<div
 			className="relative flex flex-col gap-5 w-screen h-screen
@@ -158,12 +165,7 @@ export default function SettingsPage({
 				isOpen={isCreateCatOpen}
 				onClose={() => setIsCreateCatOpen(false)}
 				categories={localSettings.categories.map((cat) => cat.name)}
-				onSavingCategory={(newCat) => {
-					setLocalSettings({
-						...localSettings,
-						categories: [newCat, ...localSettings.categories],
-					});
-				}}
+				onSavingCategory={handleAddCustomCategory}
 			/>
 
 			<div className="flex flex-col gap-3 w-full">

@@ -1,5 +1,3 @@
-import type React from 'react';
-
 export const PAGES = {
 	HOME: 'home',
 	SETTINGS: 'settings',
@@ -14,7 +12,6 @@ export type pageValue = (typeof PAGES)[pageKey];
 export type Category = {
 	name: string;
 	isActive: boolean;
-	icon: React.ComponentType<IconProps>;
 	words: string[];
 };
 

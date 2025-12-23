@@ -1,4 +1,6 @@
+import { ICON_MAP } from '../data/gameDefaults';
 import type { Category } from '../types';
+import StarIcon from './decorative/StarIcon';
 
 type CategoryButtonProps = {
 	cat: Category;
@@ -10,7 +12,10 @@ export default function CategoryButton({ cat, onToggle }: CategoryButtonProps) {
 		? 'category-selected'
 		: 'category-unselected';
 
-	const Icon = cat.icon;
+	const iconNameIndex = cat.name.trim().split(' ').join('').toLowerCase();
+
+	const Icon = ICON_MAP[iconNameIndex] ?? StarIcon;
+
 	const borderColor = cat.isActive ? '#171717' : '#ffffff';
 
 	return (

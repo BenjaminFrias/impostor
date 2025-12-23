@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { Category } from '../types';
-import StarIcon from './decorative/StarIcon';
 import StickyFooterBtn from './StickyFooterBtn';
 import ErrorMessage from './ErrorMessage';
 
@@ -14,7 +13,6 @@ type CreateCategoryModalProps = {
 const DEFAULT_CATEGORY = {
 	name: 'custom',
 	isActive: true,
-	icon: StarIcon,
 	words: [],
 };
 

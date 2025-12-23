@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Homepage from '../pages/Homepage';
 import { PAGES, type GameSettings, type pageValue } from '../types';
@@ -9,9 +9,14 @@ import DiscussionPage from '../pages/DiscussionPage';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState<pageValue>(PAGES.HOME);
-	const [gameSettings, setGameSettings] = useState<GameSettings>(
-		DEFAULT_GAME_SETTINGS
-	);
+	const [gameSettings, setGameSettings] = useState<GameSettings>(() => {
+		const savedSettings = localStorage.getItem('game_settings');
+		return savedSettings ? JSON.parse(savedSettings) : DEFAULT_GAME_SETTINGS;
+	});
+
+	useEffect(() => {
+		localStorage.setItem('game_settings', JSON.stringify(gameSettings));
+	}, [gameSettings]);
 
 	const navigate = (page: pageValue) => {
 		setCurrentPage(page);
@@ -30,6 +35,7 @@ function App() {
 				<SettingsPage
 					onNavigate={navigate}
 					onSettingsChange={onSettingsChange}
+					defaultSettings={gameSettings}
 				/>
 			);
 		case PAGES.GAMEPLAY:
