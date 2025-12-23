@@ -94,7 +94,7 @@ export default function DiscussionPage({
 
 			{
 				<div
-					className={`absolute flex flex-col justify-center items-center inset-0 p-7 pt-20 text-center
+					className={`absolute flex flex-col justify-start items-center inset-0 p-7 pt-20 text-center
                         bg-primary-red overflow-hidden transition-all duration-300 w-screen h-screen z-100 
                         ${hasRevealed ? 'scale-100' : 'scale-0'}`}
 				>
@@ -106,13 +106,8 @@ export default function DiscussionPage({
 						Player {impostorIndex}
 					</p>
 
-					<div className="w-full h-full">
-						<ImpostorPerson
-							width="100%"
-							height="100%"
-							color="#171717"
-							className="absolute -bottom-30 z-10 w-screen left-0"
-						/>
+					<div className="absolute h-[50%] bottom-0 left-0 w-screen">
+						<ImpostorPerson width="100%" height="100%" color="#171717" />
 					</div>
 
 					<div className="z-10">
